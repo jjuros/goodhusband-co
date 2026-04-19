@@ -1162,8 +1162,15 @@
     #chat-send:disabled { opacity: 0.4; cursor: default; }
 
     @media (max-width: 900px) {
-      #chat-panel { width: calc(100vw - 32px); right: 16px; }
-      #chat-btn { right: 16px; bottom: 24px; }
+      #chat-btn { right: 16px; bottom: 20px; }
+      #chat-panel {
+        width: calc(100vw - 24px);
+        right: 12px;
+        left: 12px;
+        bottom: 88px;
+        max-height: 52vh;
+      }
+      #chat-messages { max-height: calc(52vh - 120px); }
     }
   </style>
 
@@ -1228,6 +1235,19 @@
       msgs.appendChild(el);
       msgs.scrollTop = msgs.scrollHeight;
       return el;
+    }
+
+    // On mobile, lift panel above keyboard when it opens
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', function() {
+        var panel = document.getElementById('chat-panel');
+        var keyboardH = window.innerHeight - window.visualViewport.height;
+        if (keyboardH > 100) {
+          panel.style.bottom = (keyboardH + 8) + 'px';
+        } else {
+          panel.style.bottom = '';
+        }
+      });
     }
 
     function sendChat(e) {

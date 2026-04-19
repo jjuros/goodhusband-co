@@ -1,0 +1,15 @@
+{
+  "name": "goodhusband-co",
+  "version": "1.0.0",
+  "description": "Good Husband Co. — Wife-Approved. Husband-Worn.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Good Husband Co. — Wife-Approved. Husband-Worn.</title>
+  <meta name="description" content="Premium men's shirts for the certified good husband. Wife-Approved. Husband-Worn." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0A0A0A;
+      --off-black: #111111;
+      --white:   #FFFFFF;
+      --silver:  #C8C8C8;
+      --dim:     #888888;
+      --border:  rgba(255,255,255,0.1);
+      --etsy:    #F1641E;
+      --serif:   'Cormorant Garant', Georgia, serif;
+      --sans:    'Inter', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 72px;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      height: 44px;
+      width: 44px;
+      border-radius: 50%;
+    }
+    .nav-logo-text {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .nav-link {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--silver);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--white); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      background: var(--white);
+      color: var(--black);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .nav-cta:hover { background: var(--silver); transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 72px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 60px 80px 80px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 24px;
+    }
+
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--silver);
+    }
+    .hero-headline-sub {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 2.5vw, 2.8rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--dim);
+      margin-bottom: 36px;
+      line-height: 1.2;
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--silver);
+      max-width: 400px;
+      margin-bottom: 48px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      background: var(--white);
+      color: var(--black);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--silver); transform: translateY(-2px); }
+    .btn-primary svg { transition: transform 0.2s; }
+    .btn-primary:hover svg { transform: translateX(3px); }
+
+    .btn-ghost {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dim);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-ghost:hover { color: var(--white); border-color: var(--white); }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      background: #161616;
+    }
+    .hero-right::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--black) 0%, transparent 30%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    /* REPLACE src with actual product photo */
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      opacity: 0.85;
+    }
+
+    .hero-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: #161616;
+      border-left: 1px solid var(--border);
+    }
+    .hero-photo-placeholder span {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--dim);
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap {
+      overflow: hidden;
+      background: var(--white);
+      padding: 16px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .marquee-track {
+      display: flex;
+      gap: 64px;
+      white-space: nowrap;
+      animation: marquee 28s linear infinite;
+      width: max-content;
+    }
+    .marquee-item {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--black);
+      flex-shrink: 0;
+    }
+    .marquee-dot {
+      color: #888;
+      margin: 0 8px;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── FEATURED PRODUCT ── */
+    .section { padding: 120px 80px; }
+    .section-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 48px;
+    }
+    .section-title em { font-style: italic; color: var(--silver); }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .featured-img {
+      aspect-ratio: 3/4;
+      background: #161616;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      position: relative;
+    }
+    .featured-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+    }
+    .featured-img:hover img { transform: scale(1.04); }
+
+    .img-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .img-placeholder span {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #444;
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: var(--white);
+      color: var(--black);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+    }
+
+    .featured-info { padding: 20px 0; }
+    .featured-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 12px;
+    }
+    .featured-name {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .featured-tagline {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--silver);
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+    .featured-desc {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: var(--dim);
+      margin-bottom: 36px;
+      max-width: 440px;
+    }
+    .featured-price {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 32px;
+    }
+    .featured-price span {
+      font-size: 0.78rem;
+      font-family: var(--sans);
+      font-weight: 400;
+      color: var(--dim);
+      margin-left: 8px;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── TAGLINE WALL ── */
+    .tagline-section {
+      padding: 100px 80px;
+      background: var(--off-black);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .tagline-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .tagline-card {
+      padding: 48px 40px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: background 0.3s;
+    }
+    .tagline-card:hover { background: rgba(255,255,255,0.03); }
+    .tagline-num {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: #444;
+    }
+    .tagline-text {
+      font-family: var(--serif);
+      font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.3;
+      color: var(--white);
+    }
+
+    /* ── COMING SOON ── */
+    .coming-section { padding: 120px 80px; }
+    .coming-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .coming-card {
+      aspect-ratio: 3/4;
+      background: #111;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .coming-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 8px,
+        rgba(255,255,255,0.015) 8px,
+        rgba(255,255,255,0.015) 9px
+      );
+    }
+    .coming-tag {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #444;
+    }
+    .coming-label {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: #333;
+    }
+
+    /* ── BRAND STORY ── */
+    .story-section {
+      padding: 120px 80px;
+      background: var(--off-black);
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .story-text p {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--silver);
+      margin-bottom: 20px;
+    }
+    .story-text p:last-child { margin-bottom: 0; }
+    .story-quote {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3vw, 3.2rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.2;
+      color: var(--white);
+    }
+    .story-quote cite {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      font-style: normal;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-top: 20px;
+    }
+
+    /* ── NOTIFY SECTION ── */
+    .notify-section {
+      padding: 100px 80px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    .notify-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .notify-title em { font-style: italic; color: var(--silver); }
+    .notify-sub {
+      font-size: 0.9rem;
+      color: var(--dim);
+      margin-bottom: 36px;
+    }
+    .notify-form {
+      display: flex;
+      gap: 0;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .notify-input {
+      flex: 1;
+      padding: 14px 20px;
+      background: #161616;
+      border: 1px solid var(--border);
+      border-right: none;
+      color: var(--white);
+      font-size: 0.88rem;
+      font-family: var(--sans);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .notify-input::placeholder { color: #444; }
+    .notify-input:focus { border-color: rgba(255,255,255,0.3); }
+    .notify-btn {
+      padding: 14px 28px;
+      background: var(--white);
+      color: var(--black);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      font-family: var(--sans);
+      transition: background 0.2s;
+    }
+    .notify-btn:hover { background: var(--silver); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 64px 80px 40px;
+      border-top: 1px solid var(--border);
+    }
+    .foot-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 64px;
+    }
+    .foot-logo img {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      margin-bottom: 16px;
+    }
+    .foot-tagline {
+      font-family: var(--serif);
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--dim);
+      max-width: 200px;
+    }
+    .foot-col h4 {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 20px;
+    }
+    .foot-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .foot-col a {
+      font-size: 0.88rem;
+      color: var(--silver);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .foot-col a:hover { color: var(--white); }
+    .foot-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: #444;
+    }
+
+    /* ── VIDEO HERO ── */
+    .video-section {
+      position: relative;
+      background: #000;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      max-height: 680px;
+    }
+    .video-section video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.3) 0%,
+        transparent 30%,
+        transparent 60%,
+        rgba(0,0,0,0.7) 100%
+      );
+      display: flex;
+      align-items: flex-end;
+      padding: 60px 80px;
+    }
+    .video-caption {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2.8rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--white);
+      max-width: 600px;
+      line-height: 1.3;
+    }
+    .video-caption cite {
+      display: block;
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 700;
+      font-style: normal;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 12px;
+    }
+
+    /* ── CAP SECTION ── */
+    .cap-feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: 600px;
+    }
+    .cap-photo-stack {
+      position: relative;
+      background: #0d0d0d;
+      overflow: hidden;
+    }
+    .cap-photo-stack .cap-main {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .cap-badge-new {
+      position: absolute;
+      top: 28px;
+      right: 28px;
+      background: var(--white);
+      color: var(--black);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 7px 14px;
+    }
+    .cap-info {
+      background: var(--off-black);
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 64px;
+    }
+    .cap-thumbnails {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-top: 32px;
+    }
+    .cap-thumb {
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: #111;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .cap-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .cap-thumb:hover { border-color: rgba(255,255,255,0.2); }
+    .cap-thumb:hover img { transform: scale(1.06); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 20px; }
+      .nav-link { display: none; }
+
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 60px 24px 40px; }
+      .hero-right { min-height: 60vw; }
+      .hero-right::before { display: none; }
+
+      .section { padding: 80px 24px; }
+      .featured-grid { grid-template-columns: 1fr; gap: 32px; }
+      .tagline-section { padding: 60px 24px; }
+      .tagline-grid { grid-template-columns: 1fr; }
+      .cap-feature { grid-template-columns: 1fr; }
+      .cap-info { padding: 48px 24px; border-left: none; border-top: 1px solid var(--border); }
+      .coming-section { padding: 80px 24px; }
+      .coming-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .story-section { grid-template-columns: 1fr; padding: 80px 24px; gap: 40px; }
+      .notify-section { padding: 80px 24px; }
+      .notify-form { flex-direction: column; }
+      .notify-input { border-right: 1px solid var(--border); border-bottom: none; }
+      footer { padding: 48px 24px 32px; }
+      .foot-top { flex-direction: column; gap: 40px; }
+      .foot-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">
+      <img src="/gh-images/logo.png" alt="Good Husband Co." />
+      <span class="nav-logo-text">Good Husband Co.</span>
+    </a>
+    <div class="nav-right">
+      <a href="#collection" class="nav-link">Collection</a>
+      <a href="#story" class="nav-link">Our Story</a>
+      <a href="https://www.etsy.com/shop/GoodHusbandCoDesign" target="_blank" rel="noopener" class="nav-cta">
+        Shop Now
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Good Husband Co. &nbsp;·&nbsp; Shirts &amp; Hoodies &amp; Caps</p>
+      <h1 class="hero-headline">Wife-Approved.<br><em>Husband-Worn.</em></h1>
+      <p class="hero-headline-sub">She Said Yes. To The Shirt Too.</p>
+      <p class="hero-desc">
+        Premium shirts for the man who has it all figured out — or at least that's what his wife tells him.
+        Crafted for comfort. Approved for everything else.
+      </p>
+      <div class="hero-actions">
+        <a href="https://www.etsy.com/shop/GoodHusbandCoDesign" target="_blank" rel="noopener" class="btn-primary">
+          Shop the Collection
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#story" class="btn-ghost">Our story →</a>
+      </div>
+    </div>
+    <div class="hero-right" style="overflow:hidden;position:relative">
+      <video
+        id="hero-vid"
+        autoplay
+        muted
+        playsinline
+        preload="auto"
+        style="width:100%;height:100%;object-fit:cover;display:block;background:#0A0A0A"
+      >
+        <source src="/cap-video.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <script>
+      (function() {
+        var playlist = ['/cap-video.mp4', '/hoodie-video.mp4'];
+        var idx = 0;
+        var vid = document.getElementById('hero-vid');
+        vid.addEventListener('ended', function() {
+          idx = (idx + 1) % playlist.length;
+          vid.src = playlist[idx];
+          vid.load();
+          vid.play();
+        });
+      })();
+    </script>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item">Wife-Approved. Husband-Worn.<span class="marquee-dot">·</span></span>
+      <span class="marquee-item">Certified Good Husband. Ask My Wife.<span class="marquee-dot">·</span></span>
+      <span class="marquee-item">Married. Happy. Slightly Supervised.<span class="marquee-dot">·</span></span>
+      <span class="marquee-item">Because Marriage Should Come With Merch.<span class="marquee-dot">·</span></span>
+      <span class="marquee-item">She Said Yes. To The Shirt Too.<span class="marquee-dot">·</span></span>
+      <span class="marquee-item">Wife-Approved. Husband-Worn.<span class="marquee-dot">·</span></span>
+      <span class="marquee-item">Certified Good Husband. Ask My Wife.<span class="marquee-dot">·</span></span>
+      <span class="marquee-item">Married. Happy. Slightly Supervised.<span class="marquee-dot">·</span></span>
+      <span class="marquee-item">Because Marriage Should Come With Merch.<span class="marquee-dot">·</span></span>
+      <span class="marquee-item">She Said Yes. To The Shirt Too.<span class="marquee-dot">·</span></span>
+    </div>
+  </div>
+
+  <!-- FEATURED PRODUCT -->
+  <section class="section" id="collection">
+    <p class="section-eyebrow">The Collection</p>
+    <h2 class="section-title">The Shirt That Started<br><em>Everything</em></h2>
+    <div class="featured-grid">
+      <div class="featured-img">
+        <img src="/gh-images/hanging-2.jpg" alt="Good Husband Co. Shirt" />
+        <div class="featured-badge">New Drop</div>
+      </div>
+      <div class="featured-info">
+        <p class="featured-label">Signature Series — Vol. 1</p>
+        <h3 class="featured-name">The Good Husband<br>Statement Shirt</h3>
+        <p class="featured-tagline">"Certified Good Husband. Ask My Wife."</p>
+        <p class="featured-desc">
+          Premium quality shirt for the man who takes his vows seriously — and his wardrobe even more so.
+          Soft, breathable fabric. The kind of fit she'll notice first. Perfect for date night, Sunday brunch,
+          or anywhere you need to remind people you're one of the good ones.
+        </p>
+        <p class="featured-price">
+          From $35
+          <span>Free shipping on orders over $75</span>
+        </p>
+        <a href="https://www.etsy.com/shop/GoodHusbandCoDesign" target="_blank" rel="noopener" class="btn-primary">
+          Shop on Etsy
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT SHOTS STRIP -->
+  <section style="padding:0 80px 80px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
+    <div style="aspect-ratio:1;overflow:hidden;background:#111"><img src="/gh-images/front-2.jpg" alt="Good Husband Co Shirt Front" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/></div>
+    <div style="aspect-ratio:1;overflow:hidden;background:#111"><img src="/gh-images/hanging-1.jpg" alt="Good Husband Co Shirt Hanging" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/></div>
+    <div style="aspect-ratio:1;overflow:hidden;background:#111"><img src="/gh-images/folded.jpg" alt="Good Husband Co Shirt Folded" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/></div>
+    <div style="aspect-ratio:1;overflow:hidden;background:#111"><img src="/gh-images/hanging-3.jpg" alt="Good Husband Co Shirt Detail" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/></div>
+  </section>
+
+  <!-- LIFESTYLE GRID -->
+  <section style="padding:0 80px 100px;">
+    <p class="section-eyebrow" style="margin-bottom:24px">Real Life. Real Husband.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+      <div style="aspect-ratio:1;overflow:hidden;background:#111"><img src="/gh-images/lifestyle-couple-laugh.jpg" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/></div>
+      <div style="aspect-ratio:1;overflow:hidden;background:#111"><img src="/gh-images/lifestyle-pointing.jpg" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/></div>
+      <div style="aspect-ratio:1;overflow:hidden;background:#111"><img src="/gh-images/lifestyle-couple-shirt.jpg" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/></div>
+      <div style="aspect-ratio:1;overflow:hidden;background:#111"><img src="/gh-images/lifestyle-wife-shirt.jpg" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/></div>
+      <div style="aspect-ratio:1;overflow:hidden;background:#111"><img src="/gh-images/lifestyle-couple-box.jpg" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/></div>
+      <div style="aspect-ratio:1;overflow:hidden;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:32px;text-align:center;">
+        <p style="font-family:var(--serif);font-size:1.3rem;font-style:italic;color:var(--white);line-height:1.4">"Married. Happy.<br>Slightly Supervised."</p>
+        <a href="https://www.etsy.com/shop/GoodHusbandCoDesign" target="_blank" rel="noopener" class="btn-primary" style="font-size:0.68rem;padding:12px 24px">Shop Now →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE CAP -->
+  <section style="padding:80px 80px 0;background:var(--off-black);border-top:1px solid var(--border)">
+    <p class="section-eyebrow">New Arrival</p>
+    <h2 class="section-title">The GH Dad Cap<br><em>She'll Steal It First</em></h2>
+  </section>
+  <div style="background:var(--off-black);padding:0 80px 100px;">
+    <div class="cap-feature">
+      <div class="cap-photo-stack">
+        <img class="cap-main" src="https://goodhusband.co/wp-content/uploads/2026/04/Screenshot-2026-04-19-at-3.19.37-AM.png" alt="Good Husband Co. Dad Cap" loading="lazy" />
+        <span class="cap-badge-new">New Drop</span>
+      </div>
+      <div class="cap-info">
+        <p class="featured-label">Headwear — Vol. 1</p>
+        <h3 class="featured-name" style="font-size:clamp(1.8rem,2.5vw,2.6rem)">The Good Husband<br>Dad Cap</h3>
+        <p class="featured-tagline">"Distressed, just like your patience on game day."</p>
+        <p class="featured-desc">
+          Classic distressed dad cap with the GH circle logo. Structured front, adjustable strap,
+          broken-in look right out of the box. She'll probably end up wearing it more than you — and honestly, that tracks.
+        </p>
+        <p class="featured-price">
+          From $28
+          <span>Free shipping on orders over $75</span>
+        </p>
+        <a href="https://www.etsy.com/shop/GoodHusbandCoDesign" target="_blank" rel="noopener" class="btn-primary">
+          Shop on Etsy
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div class="cap-thumbnails" style="margin-top:28px">
+          <div class="cap-thumb">
+            <img src="https://goodhusband.co/wp-content/uploads/2026/04/Screenshot-2026-04-19-at-3.18.51-AM.png" alt="Cap lifestyle woman" loading="lazy" />
+          </div>
+          <div class="cap-thumb">
+            <img src="https://goodhusband.co/wp-content/uploads/2026/04/Screenshot-2026-04-19-at-3.19.42-AM.png" alt="Cap lifestyle man" loading="lazy" />
+          </div>
+          <div class="cap-thumb">
+            <img src="https://goodhusband.co/wp-content/uploads/2026/04/Product-Shot-Video-Builder-Images_-Color-palette_-Bold-and-edgy-palette-combining-dee.png" alt="Cap lifestyle" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE HOODIE -->
+  <section style="padding:80px 80px 0;">
+    <p class="section-eyebrow">New Arrival</p>
+    <h2 class="section-title">The GH Hoodie<br><em>She'll Read The Back</em></h2>
+  </section>
+  <div style="padding:0 80px 100px;">
+    <div class="cap-feature">
+      <div class="cap-info" style="background:var(--off-black);border-left:none;border-right:1px solid var(--border)">
+        <p class="featured-label">Fleece Collection — Vol. 1</p>
+        <h3 class="featured-name" style="font-size:clamp(1.8rem,2.5vw,2.6rem)">The Good Husband<br>Premium Hoodie</h3>
+        <p class="featured-tagline">"I Love It When My Wife Lets Me Drink With The Boys"</p>
+        <p class="featured-desc">
+          Front: your mark — the GH circle logo, chest-left, clean and confident.
+          Back: the truth. Premium fleece. Heavyweight enough to earn points.
+          Comfortable enough to never take off — which is exactly what she wants.
+        </p>
+        <p class="featured-price">
+          From $55
+          <span>Free shipping on orders over $75</span>
+        </p>
+        <a href="https://www.etsy.com/shop/GoodHusbandCoDesign" target="_blank" rel="noopener" class="btn-primary">
+          Shop on Etsy
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div class="cap-thumbnails" style="margin-top:28px">
+          <div class="cap-thumb">
+            <img src="https://goodhusband.co/wp-content/uploads/2026/04/Flat-Lay-Black-1.jpg" alt="Hoodie flat lay" loading="lazy" />
+          </div>
+          <div class="cap-thumb">
+            <img src="https://goodhusband.co/wp-content/uploads/2026/04/download-1.png" alt="Hoodie back detail" loading="lazy" />
+          </div>
+          <div class="cap-thumb">
+            <img src="https://goodhusband.co/wp-content/uploads/2026/04/Runway_Create_a_single_product_photography_041926.png" alt="Hoodie front and back" loading="lazy" />
+          </div>
+        </div>
+      </div>
+      <div class="cap-photo-stack">
+        <img class="cap-main" src="https://goodhusband.co/wp-content/uploads/2026/04/Front-Black.jpg" alt="Good Husband Co. Hoodie" loading="lazy" />
+        <span class="cap-badge-new">New Drop</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAGLINE WALL -->
+  <section class="tagline-section">
+    <div style="max-width:1200px;margin:0 auto">
+      <p class="section-eyebrow">The Good Husband Code</p>
+      <div class="tagline-grid">
+        <div class="tagline-card">
+          <span class="tagline-num">01</span>
+          <p class="tagline-text">"Wife-Approved.<br>Husband-Worn."</p>
+        </div>
+        <div class="tagline-card">
+          <span class="tagline-num">02</span>
+          <p class="tagline-text">"She Said Yes.<br>To The Shirt Too."</p>
+        </div>
+        <div class="tagline-card">
+          <span class="tagline-num">03</span>
+          <p class="tagline-text">"Certified Good Husband.<br>Ask My Wife."</p>
+        </div>
+        <div class="tagline-card">
+          <span class="tagline-num">04</span>
+          <p class="tagline-text">"Married. Happy.<br>Slightly Supervised."</p>
+        </div>
+        <div class="tagline-card">
+          <span class="tagline-num">05</span>
+          <p class="tagline-text">"Because Marriage Should<br>Come With Merch."</p>
+        </div>
+        <div class="tagline-card" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:20px">
+          <p style="font-family:var(--serif);font-size:1.1rem;font-style:italic;color:var(--dim)">Wear it with confidence.<br>Or let her pick.</p>
+          <a href="https://www.etsy.com/shop/GoodHusbandCoDesign" target="_blank" rel="noopener" class="btn-primary" style="font-size:0.68rem">
+            Shop Now →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMING SOON -->
+  <section class="coming-section">
+    <p class="section-eyebrow">Coming Soon</p>
+    <h2 class="section-title">5 More Drops<br><em>On The Way</em></h2>
+    <div class="coming-grid">
+      <div class="coming-card">
+        <span class="coming-tag">Drop 02</span>
+        <span class="coming-label">Coming Soon</span>
+      </div>
+      <div class="coming-card">
+        <span class="coming-tag">Drop 03</span>
+        <span class="coming-label">Coming Soon</span>
+      </div>
+      <div class="coming-card">
+        <span class="coming-tag">Drop 04</span>
+        <span class="coming-label">Coming Soon</span>
+      </div>
+      <div class="coming-card">
+        <span class="coming-tag">Drop 05</span>
+        <span class="coming-label">Coming Soon</span>
+      </div>
+      <div class="coming-card">
+        <span class="coming-tag">Drop 06</span>
+        <span class="coming-label">Coming Soon</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND STORY -->
+  <section class="story-section" id="story">
+    <div>
+      <blockquote class="story-quote">
+        "The best thing a man can wear is the respect of the woman who chose him."
+        <cite>— Good Husband Co.</cite>
+      </blockquote>
+    </div>
+    <div class="story-text">
+      <p class="section-eyebrow">Our Story</p>
+      <p>
+        Good Husband Co. was born from a simple idea: great men deserve great shirts — and great shirts deserve a great story.
+      </p>
+      <p>
+        We make premium men's clothing for the guys who show up. The ones who remember anniversaries, take out the trash without being asked, and still manage to look good doing it.
+      </p>
+      <p>
+        Every piece we make carries the same energy: confident, comfortable, and wife-approved. Because if she's not nodding when you walk out the door, you're not doing it right.
+      </p>
+      <a href="https://www.etsy.com/shop/GoodHusbandCoDesign" target="_blank" rel="noopener" class="btn-ghost" style="display:inline-block;margin-top:24px">
+        Shop the collection →
+      </a>
+    </div>
+  </section>
+
+  <!-- NOTIFY -->
+  <section class="notify-section">
+    <p class="section-eyebrow">New Drops</p>
+    <h2 class="notify-title">Be First.<br><em>She'll Be Impressed.</em></h2>
+    <p class="notify-sub">5 new shirts dropping soon. Get notified before anyone else.</p>
+    <form class="notify-form" onsubmit="handleNotify(event)">
+      <input type="email" class="notify-input" placeholder="your@email.com" required />
+      <button type="submit" class="notify-btn">Notify Me</button>
+    </form>
+    <p id="notify-msg" style="margin-top:16px;font-size:0.82rem;color:var(--dim);display:none">
+      You're on the list. She'll be proud.
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div style="max-width:1200px;margin:0 auto">
+      <div class="foot-top">
+        <div class="foot-logo">
+          <img src="/gh-images/logo.png" alt="Good Husband Co." />
+          <p class="foot-tagline">"Wife-Approved. Husband-Worn."</p>
+        </div>
+        <div class="foot-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="https://www.etsy.com/shop/GoodHusbandCoDesign" target="_blank" rel="noopener">All Products</a></li>
+            <li><a href="https://www.etsy.com/shop/GoodHusbandCoDesign" target="_blank" rel="noopener">Shirts</a></li>
+            <li><a href="https://www.etsy.com/shop/GoodHusbandCoDesign" target="_blank" rel="noopener">The GH Hoodie</a></li>
+            <li><a href="https://www.etsy.com/shop/GoodHusbandCoDesign" target="_blank" rel="noopener">The GH Dad Cap</a></li>
+            <li><a href="https://www.etsy.com/shop/GoodHusbandCoDesign" target="_blank" rel="noopener">New Arrivals</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Info</h4>
+          <ul>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="https://www.etsy.com/shop/GoodHusbandCoDesign" target="_blank" rel="noopener">Sizing Guide</a></li>
+            <li><a href="mailto:hello@goodhusband.co">Contact</a></li>
+          </ul>
+        </div>
+        <div class="foot-col">
+          <h4>Follow</h4>
+          <ul>
+            <li><a href="https://www.etsy.com/shop/GoodHusbandCoDesign" target="_blank" rel="noopener">Etsy Shop</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>&copy; 2026 Good Husband Co. All rights reserved.</span>
+        <span>goodhusband.co</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleNotify(e) {
+      e.preventDefault();
+      document.getElementById('notify-msg').style.display = 'block';
+      e.target.reset();
+    }
+  </script>
+
+</body>
+</html>

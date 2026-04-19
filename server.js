@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const Anthropic = require('@anthropic-ai/sdk');
+const rateLimit = require('express-rate-limit');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -39,6 +40,24 @@ app.use((req, res, next) => {
   next();
 });
 
+// Rate limiting — general site
+app.use(rateLimit({
+  windowMs: 60 * 1000,       // 1 minute
+  max: 120,                  // 120 requests/min per IP (normal browsing)
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Too many requests, slow down.' },
+}));
+
+// Rate limiting — chat endpoint (stricter)
+const chatLimit = rateLimit({
+  windowMs: 60 * 1000,       // 1 minute
+  max: 10,                   // 10 chat messages/min per IP
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Too many messages. Wait a moment and try again.' },
+});
+
 // Parse JSON bodies
 app.use(express.json());
 
@@ -67,7 +86,7 @@ app.post('/subscribe', (req, res) => {
 });
 
 // AI chat endpoint
-app.post('/chat', async (req, res) => {
+app.post('/chat', chatLimit, async (req, res) => {
   const { message, history = [] } = req.body;
 
   if (!message || typeof message !== 'string' || message.trim().length === 0) {

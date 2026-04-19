@@ -126,14 +126,21 @@ app.post('/chat', chatLimit, async (req, res) => {
   }
 });
 
-// Serve all static files from /public
+// Serve static assets (images, video, css, js) with caching
 app.use(express.static(path.join(__dirname, 'public'), {
   maxAge: '1d',
   etag: true,
+  setHeaders(res, filePath) {
+    // Never cache HTML — always serve fresh so updates deploy instantly
+    if (filePath.endsWith('.html')) {
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    }
+  },
 }));
 
-// SPA fallback
+// SPA fallback — no cache on HTML
 app.get('*', (req, res) => {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 

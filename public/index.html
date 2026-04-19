@@ -400,52 +400,6 @@
       color: var(--white);
     }
 
-    /* ── COMING SOON ── */
-    .coming-section { padding: 120px 80px; }
-    .coming-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
-      margin-top: 48px;
-    }
-    .coming-card {
-      aspect-ratio: 3/4;
-      background: #111;
-      border: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      position: relative;
-      overflow: hidden;
-    }
-    .coming-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 8px,
-        rgba(255,255,255,0.015) 8px,
-        rgba(255,255,255,0.015) 9px
-      );
-    }
-    .coming-tag {
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: #444;
-    }
-    .coming-label {
-      font-family: var(--serif);
-      font-size: 1rem;
-      font-style: italic;
-      color: #333;
-    }
-
     /* ── BRAND STORY ── */
     .story-section {
       padding: 120px 80px;
@@ -990,33 +944,6 @@
     </div>
   </section>
 
-  <!-- COMING SOON -->
-  <section class="coming-section">
-    <p class="section-eyebrow">Coming Soon</p>
-    <h2 class="section-title">5 More Drops<br><em>On The Way</em></h2>
-    <div class="coming-grid">
-      <div class="coming-card">
-        <span class="coming-tag">Drop 02</span>
-        <span class="coming-label">Coming Soon</span>
-      </div>
-      <div class="coming-card">
-        <span class="coming-tag">Drop 03</span>
-        <span class="coming-label">Coming Soon</span>
-      </div>
-      <div class="coming-card">
-        <span class="coming-tag">Drop 04</span>
-        <span class="coming-label">Coming Soon</span>
-      </div>
-      <div class="coming-card">
-        <span class="coming-tag">Drop 05</span>
-        <span class="coming-label">Coming Soon</span>
-      </div>
-      <div class="coming-card">
-        <span class="coming-tag">Drop 06</span>
-        <span class="coming-label">Coming Soon</span>
-      </div>
-    </div>
-  </section>
 
   <!-- BRAND STORY -->
   <section class="story-section" id="story">

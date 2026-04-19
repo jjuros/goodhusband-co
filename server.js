@@ -45,6 +45,18 @@ app.post('/subscribe', (req, res) => {
   res.json({ ok: true });
 });
 
+// Debug: list public/gh-images contents (remove after confirming deploy)
+app.get('/_debug', (req, res) => {
+  const publicDir = path.join(__dirname, 'public');
+  const imagesDir = path.join(publicDir, 'gh-images');
+  try {
+    const files = fs.readdirSync(imagesDir);
+    res.json({ __dirname, publicDir, imagesDir, files });
+  } catch (e) {
+    res.json({ error: e.message, __dirname });
+  }
+});
+
 // Serve all static files from /public
 app.use(express.static(path.join(__dirname, 'public'), {
   maxAge: '1d',

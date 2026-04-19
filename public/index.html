@@ -208,32 +208,12 @@
       z-index: 1;
       pointer-events: none;
     }
-    /* REPLACE src with actual product photo */
     .hero-right img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: top center;
       opacity: 0.85;
-    }
-
-    .hero-photo-placeholder {
-      width: 100%;
-      height: 100%;
-      min-height: 600px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      background: #161616;
-      border-left: 1px solid var(--border);
-    }
-    .hero-photo-placeholder span {
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--dim);
     }
 
     /* ── MARQUEE ── */
@@ -309,22 +289,19 @@
     }
     .featured-img:hover img { transform: scale(1.04); }
 
-    .img-placeholder {
+    /* ── IMAGE ZOOM GRID ── */
+    .img-zoom {
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: #111;
+    }
+    .img-zoom img {
       width: 100%;
       height: 100%;
-      min-height: 500px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
     }
-    .img-placeholder span {
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #444;
-    }
+    .img-zoom:hover img { transform: scale(1.04); }
 
     .featured-badge {
       position: absolute;
@@ -751,6 +728,13 @@
       .foot-top { flex-direction: column; gap: 40px; }
       .foot-bottom { flex-direction: column; gap: 8px; text-align: center; }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track { animation: none; }
+      .featured-img img,
+      .cap-thumb img,
+      .img-zoom img { transition: none; }
+    }
   </style>
 </head>
 <body>
@@ -864,21 +848,21 @@
 
   <!-- PRODUCT SHOTS STRIP -->
   <section style="padding:0 80px 80px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
-    <div style="aspect-ratio:1;overflow:hidden;background:#111"><img src="/gh-images/front-2.jpg" alt="Good Husband Co Shirt Front" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/></div>
-    <div style="aspect-ratio:1;overflow:hidden;background:#111"><img src="/gh-images/hanging-1.jpg" alt="Good Husband Co Shirt Hanging" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/></div>
-    <div style="aspect-ratio:1;overflow:hidden;background:#111"><img src="/gh-images/folded.jpg" alt="Good Husband Co Shirt Folded" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/></div>
-    <div style="aspect-ratio:1;overflow:hidden;background:#111"><img src="/gh-images/hanging-3.jpg" alt="Good Husband Co Shirt Detail" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/></div>
+    <div class="img-zoom"><img src="/gh-images/front-2.jpg" alt="Good Husband Co Shirt Front" /></div>
+    <div class="img-zoom"><img src="/gh-images/hanging-1.jpg" alt="Good Husband Co Shirt Hanging" /></div>
+    <div class="img-zoom"><img src="/gh-images/folded.jpg" alt="Good Husband Co Shirt Folded" /></div>
+    <div class="img-zoom"><img src="/gh-images/hanging-3.jpg" alt="Good Husband Co Shirt Detail" /></div>
   </section>
 
   <!-- LIFESTYLE GRID -->
   <section style="padding:0 80px 100px;">
     <p class="section-eyebrow" style="margin-bottom:24px">Real Life. Real Husband.</p>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
-      <div style="aspect-ratio:1;overflow:hidden;background:#111"><img src="/gh-images/lifestyle-couple-laugh.jpg" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/></div>
-      <div style="aspect-ratio:1;overflow:hidden;background:#111"><img src="/gh-images/lifestyle-pointing.jpg" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/></div>
-      <div style="aspect-ratio:1;overflow:hidden;background:#111"><img src="/gh-images/lifestyle-couple-shirt.jpg" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/></div>
-      <div style="aspect-ratio:1;overflow:hidden;background:#111"><img src="/gh-images/lifestyle-wife-shirt.jpg" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/></div>
-      <div style="aspect-ratio:1;overflow:hidden;background:#111"><img src="/gh-images/lifestyle-couple-box.jpg" alt="" style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/></div>
+      <div class="img-zoom"><img src="/gh-images/lifestyle-couple-laugh.jpg" alt="Couple laughing in Good Husband shirt" /></div>
+      <div class="img-zoom"><img src="/gh-images/lifestyle-pointing.jpg" alt="Good Husband Co lifestyle" /></div>
+      <div class="img-zoom"><img src="/gh-images/lifestyle-couple-shirt.jpg" alt="Couple wearing Good Husband shirt" /></div>
+      <div class="img-zoom"><img src="/gh-images/lifestyle-wife-shirt.jpg" alt="Good Husband Co lifestyle" /></div>
+      <div class="img-zoom"><img src="/gh-images/lifestyle-couple-box.jpg" alt="Good Husband Co unboxing" /></div>
       <div style="aspect-ratio:1;overflow:hidden;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:32px;text-align:center;">
         <p style="font-family:var(--serif);font-size:1.3rem;font-style:italic;color:var(--white);line-height:1.4">"Married. Happy.<br>Slightly Supervised."</p>
         <a href="https://www.etsy.com/shop/GoodHusbandCoDesign" target="_blank" rel="noopener" class="btn-primary" style="font-size:0.68rem;padding:12px 24px">Shop Now →</a>
@@ -894,7 +878,7 @@
   <div style="background:var(--off-black);padding:0 80px 100px;">
     <div class="cap-feature">
       <div class="cap-photo-stack">
-        <img class="cap-main" src="https://goodhusband.co/wp-content/uploads/2026/04/Screenshot-2026-04-19-at-3.19.37-AM.png" alt="Good Husband Co. Dad Cap" loading="lazy" />
+        <img class="cap-main" src="/gh-images/cap-product.png" alt="Good Husband Co. Dad Cap" loading="lazy" />
         <span class="cap-badge-new">New Drop</span>
       </div>
       <div class="cap-info">
@@ -915,13 +899,13 @@
         </a>
         <div class="cap-thumbnails" style="margin-top:28px">
           <div class="cap-thumb">
-            <img src="https://goodhusband.co/wp-content/uploads/2026/04/Screenshot-2026-04-19-at-3.18.51-AM.png" alt="Cap lifestyle woman" loading="lazy" />
+            <img src="/gh-images/cap-woman.png" alt="Cap lifestyle woman" loading="lazy" />
           </div>
           <div class="cap-thumb">
-            <img src="https://goodhusband.co/wp-content/uploads/2026/04/Screenshot-2026-04-19-at-3.19.42-AM.png" alt="Cap lifestyle man" loading="lazy" />
+            <img src="/gh-images/cap-man.png" alt="Cap lifestyle man" loading="lazy" />
           </div>
           <div class="cap-thumb">
-            <img src="https://goodhusband.co/wp-content/uploads/2026/04/Product-Shot-Video-Builder-Images_-Color-palette_-Bold-and-edgy-palette-combining-dee.png" alt="Cap lifestyle" loading="lazy" />
+            <img src="/gh-images/concept-2-grid.png" alt="Cap lifestyle" loading="lazy" />
           </div>
         </div>
       </div>
@@ -954,18 +938,18 @@
         </a>
         <div class="cap-thumbnails" style="margin-top:28px">
           <div class="cap-thumb">
-            <img src="https://goodhusband.co/wp-content/uploads/2026/04/Flat-Lay-Black-1.jpg" alt="Hoodie flat lay" loading="lazy" />
+            <img src="/gh-images/hoodie-flat.jpg" alt="Hoodie flat lay" loading="lazy" />
           </div>
           <div class="cap-thumb">
-            <img src="https://goodhusband.co/wp-content/uploads/2026/04/download-1.png" alt="Hoodie back detail" loading="lazy" />
+            <img src="/gh-images/hoodie-download.png" alt="Hoodie back detail" loading="lazy" />
           </div>
           <div class="cap-thumb">
-            <img src="https://goodhusband.co/wp-content/uploads/2026/04/Runway_Create_a_single_product_photography_041926.png" alt="Hoodie front and back" loading="lazy" />
+            <img src="/gh-images/hoodie-single-product.png" alt="Hoodie front and back" loading="lazy" />
           </div>
         </div>
       </div>
       <div class="cap-photo-stack">
-        <img class="cap-main" src="https://goodhusband.co/wp-content/uploads/2026/04/Front-Black.jpg" alt="Good Husband Co. Hoodie" loading="lazy" />
+        <img class="cap-main" src="/gh-images/hoodie-front.jpg" alt="Good Husband Co. Hoodie" loading="lazy" />
         <span class="cap-badge-new">New Drop</span>
       </div>
     </div>
@@ -1116,8 +1100,30 @@
   <script>
     function handleNotify(e) {
       e.preventDefault();
-      document.getElementById('notify-msg').style.display = 'block';
-      e.target.reset();
+      var email = e.target.querySelector('input[type="email"]').value;
+      var btn = e.target.querySelector('.notify-btn');
+      var msg = document.getElementById('notify-msg');
+      btn.disabled = true;
+      btn.textContent = '...';
+      fetch('/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+      })
+      .then(function(r) { return r.json(); })
+      .then(function() {
+        msg.textContent = "You're on the list. She'll be proud.";
+        msg.style.display = 'block';
+        e.target.reset();
+      })
+      .catch(function() {
+        msg.textContent = 'Something went wrong. Try again.';
+        msg.style.display = 'block';
+      })
+      .finally(function() {
+        btn.disabled = false;
+        btn.textContent = 'Notify Me';
+      });
     }
   </script>
 

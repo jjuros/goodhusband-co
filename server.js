@@ -1,16 +1,48 @@
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const SUBSCRIBERS_FILE = path.join(__dirname, 'subscribers.json');
 
-// Serve videos with proper range support (needed for video seeking)
+// Hide server fingerprint
+app.disable('x-powered-by');
+
+// Security headers
 app.use((req, res, next) => {
-  if (req.path.match(/\.(mp4|mov|webm)$/)) {
-    res.setHeader('Accept-Ranges', 'bytes');
-    res.setHeader('Cache-Control', 'public, max-age=86400');
-  }
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
   next();
+});
+
+// Parse JSON bodies for /subscribe
+app.use(express.json());
+
+// Email subscribe endpoint — appends to subscribers.json
+app.post('/subscribe', (req, res) => {
+  const { email } = req.body;
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return res.status(400).json({ error: 'Invalid email' });
+  }
+
+  let subscribers = [];
+  try {
+    if (fs.existsSync(SUBSCRIBERS_FILE)) {
+      subscribers = JSON.parse(fs.readFileSync(SUBSCRIBERS_FILE, 'utf8'));
+    }
+  } catch {
+    subscribers = [];
+  }
+
+  if (!subscribers.includes(email)) {
+    subscribers.push(email);
+    fs.writeFileSync(SUBSCRIBERS_FILE, JSON.stringify(subscribers, null, 2));
+  }
+
+  res.json({ ok: true });
 });
 
 // Serve all static files from /public
@@ -19,7 +51,7 @@ app.use(express.static(path.join(__dirname, 'public'), {
   etag: true,
 }));
 
-// All routes serve index.html (SPA fallback)
+// SPA fallback — all unknown routes return index.html
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });

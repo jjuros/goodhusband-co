@@ -28,6 +28,9 @@ RULES:
 - If asked something off-topic, steer back to the brand with a light touch.
 - Never make up prices, availability, or facts about products.`;
 
+// Trust Hostinger's reverse proxy so rate limiting uses real client IPs
+app.set('trust proxy', 1);
+
 // Hide server fingerprint
 app.disable('x-powered-by');
 

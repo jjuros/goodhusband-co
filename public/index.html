@@ -749,6 +749,7 @@
         vid.addEventListener('ended', function() {
           idx = (idx + 1) % playlist.length;
           vid.src = playlist[idx];
+          vid.muted = true;
           vid.load();
           vid.play();
         });

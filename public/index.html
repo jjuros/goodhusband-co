@@ -655,6 +655,8 @@
     }
     .cap-thumb:hover { border-color: rgba(255,255,255,0.2); }
     .cap-thumb:hover img { transform: scale(1.06); }
+    .cap-thumb.active { border-color: var(--white); }
+    .cap-main { transition: opacity 0.25s ease; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -1322,6 +1324,26 @@
         btn.textContent = 'Notify Me';
       });
     }
+  </script>
+
+  <script>
+    document.querySelectorAll('.cap-thumb').forEach(function(thumb) {
+      thumb.addEventListener('click', function() {
+        var feature = thumb.closest('.cap-feature');
+        var mainImg = feature.querySelector('.cap-main');
+        var thumbImg = thumb.querySelector('img');
+
+        mainImg.style.opacity = '0';
+        setTimeout(function() {
+          mainImg.src = thumbImg.src;
+          mainImg.alt = thumbImg.alt;
+          mainImg.style.opacity = '1';
+        }, 150);
+
+        feature.querySelectorAll('.cap-thumb').forEach(function(t) { t.classList.remove('active'); });
+        thumb.classList.add('active');
+      });
+    });
   </script>
 
 </body>
